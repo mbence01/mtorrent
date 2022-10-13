@@ -1,6 +1,0 @@
-C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Client.Model\bin\Debug\Torrent.Client.Model.dll
-C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Client.Model\bin\Debug\Torrent.Client.Model.pdb
-C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Client.Model\obj\Debug\Torrent.Client.Model.csproj.AssemblyReference.cache
-C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Client.Model\obj\Debug\Torrent.Client.Model.csproj.CoreCompileInputs.cache
-C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Client.Model\obj\Debug\Torrent.Client.Model.dll
-C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Client.Model\obj\Debug\Torrent.Client.Model.pdb
