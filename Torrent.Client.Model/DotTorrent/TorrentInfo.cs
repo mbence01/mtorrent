@@ -17,6 +17,10 @@ namespace Torrent.Client.Model.DotTorrent
         /// </summary>
         public string Name { get; set; }
         /// <summary>
+        /// Size of file
+        /// </summary>
+        public int Length { get; set; }
+        /// <summary>
         /// Size of the torrent
         /// </summary>
         public int PieceLength { get; set; }

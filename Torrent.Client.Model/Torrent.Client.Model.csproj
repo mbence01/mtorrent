@@ -46,6 +46,7 @@
     <Compile Include="Exception\DictionaryToModelConversionFailedException.cs" />
     <Compile Include="Exception\TorrentFileOpenException.cs" />
     <Compile Include="DotTorrent\TorrentFile.cs" />
+    <Compile Include="Interface\ITorrentFileParser.cs" />
     <Compile Include="TrackerServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
