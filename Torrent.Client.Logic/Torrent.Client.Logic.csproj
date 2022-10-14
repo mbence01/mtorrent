@@ -63,19 +63,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Parser\TorrentFileParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DownloadManager.cs" />
+    <Compile Include="RequestBuilder\ConnectRequestBuilder.cs" />
+    <Compile Include="TrackerManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Torrent.Client.Communication\Torrent.Client.Communication.csproj">
+      <Project>{62a528b3-b944-4677-96d1-0b90e48394a8}</Project>
+      <Name>Torrent.Client.Communication</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Torrent.Client.Model\Torrent.Client.Model.csproj">
       <Project>{7077594c-a79a-4997-9e0f-61bc14c08e7c}</Project>
       <Name>Torrent.Client.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -18,10 +18,15 @@ namespace Torrent.Client.Communication
             { 
                 IPAddress ipAddr = HostParser.ParseIPAddress(request.Uri);
                 IPEndPoint endPoint = new IPEndPoint(ipAddr, request.Uri.Port);
+                IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
 
                 client.Connect(endPoint);
 
+                int bytesSent = client.Send(request.RawMessage, request.RawMessage.Length);
 
+                byte[] resp = client.Receive(ref remoteEndPoint);
+
+                return new ConnectResponse();
             }
             catch(Exception ex)
             {

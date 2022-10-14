@@ -41,13 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Communication\Request\BaseRequest.cs" />
+    <Compile Include="Communication\Request\ConnectRequest.cs" />
+    <Compile Include="Communication\Response\BaseResponse.cs" />
+    <Compile Include="Communication\Response\ConnectResponse.cs" />
     <Compile Include="DotTorrent\TorrentInfo.cs" />
     <Compile Include="DotTorrent\TorrentPiece.cs" />
     <Compile Include="Exception\DictionaryToModelConversionFailedException.cs" />
+    <Compile Include="Exception\InvalidTrackerIPAddressOrDnsException.cs" />
     <Compile Include="Exception\TorrentFileOpenException.cs" />
     <Compile Include="DotTorrent\TorrentFile.cs" />
     <Compile Include="Interface\ITorrentFileParser.cs" />
-    <Compile Include="TrackerServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

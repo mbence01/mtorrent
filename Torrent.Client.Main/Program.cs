@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using Torrent.Client.Logic;
 using Torrent.Client.Logic.Parser;
 using Torrent.Client.Model.DotTorrent;
 using Torrent.Client.Model.Interface;
@@ -15,6 +16,11 @@ namespace Torrent.Client.Main
             InitializeComponents();
 
             TorrentFile torrent = _fileParser.ParseTorrentFile(@"C:\Users\Acer Ultrabook\Desktop\r.torrent");
+
+            string trackerServerUrl = torrent.Announce;
+
+            TrackerManager manager = new TrackerManager(trackerServerUrl);
+            manager.ConnectToTracker();
         }
 
         private static void InitializeComponents()

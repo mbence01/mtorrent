@@ -26,7 +26,8 @@ namespace Torrent.Client.Logic
             ConnectRequestBuilder builder = new ConnectRequestBuilder();
             TrackerCommunication communication = new TrackerCommunication();
 
-            ConnectRequest requestMessage = builder.BuildConnectRequest();
+            ConnectRequest requestMessage = builder.BuildConnectRequest(_trackerUrl);
+            communication.ConnectToTracker(requestMessage);
         }
     }
 }
