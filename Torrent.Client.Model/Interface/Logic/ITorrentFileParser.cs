@@ -20,9 +20,9 @@ namespace Torrent.Client.Model.Interface
         /// <summary>
         /// Parses the given .torrent file and creates an instance of <see cref="TorrentFile"/> with properties from the file.
         /// </summary>
-        /// <param name="path">Path to the .torrent file</param>
+        /// <param name="fileContent">Content of the .torrent file</param>
         /// <returns>A <see cref="TorrentFile"/> instance</returns>
-        TorrentFile ParseTorrentFile(string path);
+        TorrentFile ParseTorrent(string fileContent);
         #endregion
     }
 }

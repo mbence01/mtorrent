@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Torrent.Client.Model.DotTorrent;
 using Torrent.Client.Model.Exception;
 using Torrent.Client.Model.Interface;
@@ -22,23 +23,12 @@ namespace Torrent.Client.Logic.Parser
         public System.Collections.Specialized.NameValueCollection AppSettings { get; set; }
         #endregion
 
-        #region Constructor
-        /// <summary>
-        /// Creates an instance of the <see cref="TorrentFileParser"/> and set the AppSettings to <paramref name="appSettings"/>
-        /// </summary>
-        /// <param name="appSettings"></param>
-        public TorrentFileParser(System.Collections.Specialized.NameValueCollection appSettings)
-        {
-            AppSettings = appSettings;
-        }
-        #endregion
-
         #region Public functions
-        public TorrentFile ParseTorrentFile(string path)
+        public TorrentFile ParseTorrent(string fileContent)
         {
             try
             {
-                using(Stream stream = new FileStream(path, FileMode.Open))
+                using (Stream stream = new MemoryStream(Encoding.UTF8.GetBytes(fileContent)))
                 {
                     BencodeParser parser = new BencodeParser();
                     BDictionary parsedTorrentFileAsDictionary = parser.Parse<BDictionary>(stream);
@@ -51,7 +41,7 @@ namespace Torrent.Client.Logic.Parser
                                       ex is IOException ||
                                       ex is UnauthorizedAccessException)
             {
-                throw new TorrentFileOpenException(path, ex);
+                throw new TorrentFileOpenException(fileContent, ex);
             }
         }
         #endregion
@@ -67,10 +57,12 @@ namespace Torrent.Client.Logic.Parser
         {
             TorrentFile torrent = new TorrentFile();
 
+            torrent.BencodedDictionary = properties;
+
             try
             {
                 // These two properties are required according to the BitTorrent file structure
-                torrent.Announce        = properties.Get<BString>(AppSettings["PropAnnounce"]).ToString();
+                torrent.Announce        = new Uri(properties.Get<BString>(AppSettings["PropAnnounce"]).ToString());
                 torrent.Info            = GenerateModelForTorrentInfo(properties.Get<BDictionary>(AppSettings["PropInformation"]));
 
                 // These are optional keys

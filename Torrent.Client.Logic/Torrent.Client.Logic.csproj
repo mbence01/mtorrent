@@ -66,7 +66,9 @@
     <Compile Include="Parser\TorrentFileParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DownloadManager.cs" />
+    <Compile Include="RequestBuilder\AnnounceRequestBuilder.cs" />
     <Compile Include="RequestBuilder\ConnectRequestBuilder.cs" />
+    <Compile Include="RequestBuilder\ScrapeRequestBuilder.cs" />
     <Compile Include="TrackerManager.cs" />
   </ItemGroup>
   <ItemGroup>

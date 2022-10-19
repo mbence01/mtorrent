@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BencodeNET.Objects;
+using System;
 using System.Text;
 
 namespace Torrent.Client.Model.DotTorrent
@@ -9,9 +10,13 @@ namespace Torrent.Client.Model.DotTorrent
     public class TorrentFile
     {
         /// <summary>
+        /// The original bencoded dictionary containing all torrent data
+        /// </summary>
+        public BDictionary BencodedDictionary { get; set; }
+        /// <summary>
         /// The tracker server URL
         /// </summary>
-        public string Announce { get; set; }
+        public Uri Announce { get; set; }
         /// <summary>
         /// The program which generated the torrent file
         /// </summary>

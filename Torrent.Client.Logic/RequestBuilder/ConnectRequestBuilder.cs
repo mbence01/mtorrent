@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using Torrent.Client.Model.Communication.Request;
 
 namespace Torrent.Client.Logic.RequestBuilder
@@ -15,17 +16,10 @@ namespace Torrent.Client.Logic.RequestBuilder
             {
                 ProtocolId = PROTOCOL_ID_CONSTANT,
                 Action = 0,
-                TransactionId = new Random().Next(Int32.MaxValue)
+                TransactionId = new Random().Next(Int32.MaxValue),
+                Url = trackerUrl
             };
-            
-            List<byte> bytes = new List<byte>();
 
-            bytes.AddRange(BitConverter.GetBytes(request.ProtocolId));
-            bytes.AddRange(BitConverter.GetBytes(request.Action));
-            bytes.AddRange(BitConverter.GetBytes(request.TransactionId));
-
-            request.RawMessage = bytes.ToArray();
-            request.Uri = new Uri(trackerUrl);
             return request;
         }
     }

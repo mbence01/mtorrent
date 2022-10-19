@@ -18,7 +18,7 @@
         /// <see cref="System.IO.IOException" />, 
         /// <see cref="System.UnauthorizedAccessException" />
         /// </summary>
-        public TorrentFileOpenException(string path, System.Exception innerException) 
-            : base($"Cannot read from file '{path}' when trying to parse the given torrent file", innerException) { }
+        public TorrentFileOpenException(string content, System.Exception innerException) 
+            : base($"Cannot read bencoded data: '{content}', while trying to parse into a dictionary", innerException) { }
     }
 }
