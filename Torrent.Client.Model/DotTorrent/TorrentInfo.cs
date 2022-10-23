@@ -19,11 +19,11 @@ namespace Torrent.Client.Model.DotTorrent
         /// <summary>
         /// Size of file
         /// </summary>
-        public int Length { get; set; }
+        public long Length { get; set; }
         /// <summary>
         /// Size of the torrent
         /// </summary>
-        public int PieceLength { get; set; }
+        public long PieceLength { get; set; }
         /// <summary>
         /// A byte array that is in the info
         /// </summary>

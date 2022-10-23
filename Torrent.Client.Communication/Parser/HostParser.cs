@@ -14,8 +14,6 @@ namespace Torrent.Client.Communication.Parser
         /// <exception cref="InvalidTrackerIPAddressOrDnsException"></exception>
         public static IPAddress ParseIPAddress(Uri uri)
         {
-            return IPAddress.Parse("123.123.123.123");
-
             if(uri.HostNameType == UriHostNameType.Dns)
             {
                 IPAddress[] ipAddresses = Dns.GetHostAddresses(uri.Host);

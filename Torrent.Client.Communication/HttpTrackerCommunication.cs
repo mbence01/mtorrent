@@ -3,11 +3,13 @@ using BencodeNET.Parsing;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Web;
+using Torrent.Client.Communication.ResponseBuilder;
 using Torrent.Client.Model.Communication.Request;
 using Torrent.Client.Model.Communication.Response;
 using Torrent.Client.Model.Interface;
@@ -20,13 +22,29 @@ namespace Torrent.Client.Communication
         {
             try
             {
-                HttpClient httpClient = new HttpClient();
-                string requestUrl = $"{request.Url.Replace("announce", "scrape")}?info_hash=%61%a4%3f%fc%dd%ae%05%01%fa%8c%d9%d0%d8%59%77%d4%80%7e%84%11";
+                StringBuilder stringBuilder = new StringBuilder();
 
-                HttpResponseMessage response = httpClient.GetAsync(requestUrl).Result;
+                #region Build the request URL
+                stringBuilder.Append(request.Uri.ToString().Replace("announce", "scrape"));
+                stringBuilder.Append($"?info_hash={request.InfoHash}");
+                #endregion
 
-                Stream res = response.Content.ReadAsStreamAsync().Result;
-                BDictionary dict = new BencodeParser().Parse<BDictionary>(res);
+                string requestUrl = stringBuilder.ToString();
+
+                HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(requestUrl);
+
+                webRequest.Method = "GET";
+                webRequest.KeepAlive = false;
+                webRequest.ContentType = "text/plain";
+                webRequest.AllowAutoRedirect = false;
+                webRequest.Timeout = (int)(TimeSpan.FromMinutes(1).TotalMilliseconds);
+
+                HttpWebResponse response = (HttpWebResponse)webRequest.GetResponse();
+
+                byte[] buff = new byte[1024];
+                var resp = response.GetResponseStream().ReadAsync(buff, 0, buff.Length);
+                string respStr = Encoding.UTF8.GetString(buff);
+             
                 return new ScrapeResponse();
             }
             catch (Exception ex)
@@ -42,35 +60,44 @@ namespace Torrent.Client.Communication
         {
             try
             {
-                HttpClient httpClient = new HttpClient();
                 StringBuilder stringBuilder = new StringBuilder();
-                string hash = "%61%a4%3f%fc%dd%ae%05%01%fa%8c%d9%d0%d8%59%77%d4%80%7e%84%11";
-                #region Build the request URL
-                stringBuilder.Append(request.Url);
-                stringBuilder.Append($"?info_hash={hash}");
-                //stringBuilder.Append($"&peer_id={HttpUtility.UrlEncode(request.PeerId)}");
-                
-                //if(!String.IsNullOrEmpty(request.Ip))
-                //    stringBuilder.Append($"&ip={request.Ip}");
 
-                //stringBuilder.Append($"&port={request.Port}");
-                //stringBuilder.Append($"&uploaded={request.Uploaded}");
-                //stringBuilder.Append($"&downloaded={request.Downloaded}");
-                //stringBuilder.Append($"&left={request.Left}");
+                #region Build the request URL
+                stringBuilder.Append(request.Uri.ToString());
+                stringBuilder.Append($"?info_hash={request.InfoHash}");
+                stringBuilder.Append($"&peer_id={HttpUtility.UrlEncode(request.PeerId)}");
                 
-                //if(!String.IsNullOrEmpty(request.Event))
-                //    stringBuilder.Append($"&event={request.Event}");
-                
-                //stringBuilder.Append($"&numwant={request.NumWant}");
+                if(!String.IsNullOrEmpty(request.Ip))
+                    stringBuilder.Append($"&ip={request.Ip}");
+
+                stringBuilder.Append($"&port={request.Port}");
+                stringBuilder.Append($"&uploaded={request.Uploaded}");
+                stringBuilder.Append($"&downloaded={request.Downloaded}");
+                stringBuilder.Append($"&left={request.Left}");
+                stringBuilder.Append($"&compact={request.Compact}");
+
+                if (!String.IsNullOrEmpty(request.Event))
+                    stringBuilder.Append($"&event={request.Event}");
+
+                stringBuilder.Append($"&numwant={request.NumWant}");
                 #endregion
 
                 string requestUrl = stringBuilder.ToString();
-                
-                HttpResponseMessage response = httpClient.GetAsync(requestUrl).Result;
 
-                string res = response.Content.ReadAsStringAsync().Result;
+                HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(requestUrl);
 
-                return new AnnounceResponse();
+                webRequest.Method = "GET";
+                webRequest.KeepAlive = false;
+                webRequest.ContentType = "text/plain";
+                webRequest.AllowAutoRedirect = false;
+                webRequest.Timeout = (int)(TimeSpan.FromMinutes(1).TotalMilliseconds);
+
+                HttpWebResponse response = (HttpWebResponse)webRequest.GetResponse();
+
+                byte[] buff = new byte[1024];
+                response.GetResponseStream().ReadAsync(buff, 0, buff.Length);
+
+                return new AnnounceResponseBuilder().BuildAnnounceResponse(buff);
             }
             catch(Exception ex)
             {
@@ -87,7 +114,7 @@ namespace Torrent.Client.Communication
             {
                 HttpClient client = new HttpClient();
 
-                string requestUrl = $"{request.Url}?connection_id={request.ProtocolId}&action={request.Action}&transaction_id={request.TransactionId}";
+                string requestUrl = $"{request.Uri.ToString()}?connection_id={request.ProtocolId}&action={request.Action}&transaction_id={request.TransactionId}";
                 HttpResponseMessage response = client.GetAsync(requestUrl).Result;
 
                 string res = response.Content.ReadAsStringAsync().Result;

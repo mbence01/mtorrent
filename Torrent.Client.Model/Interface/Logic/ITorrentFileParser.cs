@@ -22,7 +22,7 @@ namespace Torrent.Client.Model.Interface
         /// </summary>
         /// <param name="fileContent">Content of the .torrent file</param>
         /// <returns>A <see cref="TorrentFile"/> instance</returns>
-        TorrentFile ParseTorrent(string fileContent);
+        TorrentFile ParseTorrent(byte[] fileContent);
         #endregion
     }
 }

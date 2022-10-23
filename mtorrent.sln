@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Torrent.Client.Communicatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Torrent.Client.Main", "Torrent.Client.Main\Torrent.Client.Main.csproj", "{C3046C0D-D3FC-4581-A7ED-9CBEA233AAC0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Torrent.Client.Application", "Torrent.Client.Application\Torrent.Client.Application.csproj", "{2C625B20-866F-43EF-A36C-52870A467007}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C3046C0D-D3FC-4581-A7ED-9CBEA233AAC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3046C0D-D3FC-4581-A7ED-9CBEA233AAC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3046C0D-D3FC-4581-A7ED-9CBEA233AAC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C625B20-866F-43EF-A36C-52870A467007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C625B20-866F-43EF-A36C-52870A467007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C625B20-866F-43EF-A36C-52870A467007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C625B20-866F-43EF-A36C-52870A467007}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

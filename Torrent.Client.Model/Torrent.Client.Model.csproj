@@ -77,9 +77,9 @@
     <Compile Include="Exception\InvalidTrackerIPAddressOrDnsException.cs" />
     <Compile Include="Exception\TorrentFileOpenException.cs" />
     <Compile Include="DotTorrent\TorrentFile.cs" />
+    <Compile Include="Exception\TrackerFailureResponseException.cs" />
     <Compile Include="Interface\Logic\ITorrentFileParser.cs" />
     <Compile Include="Interface\Communication\ITrackerCommunication.cs" />
-    <Compile Include="Interface\Main\IConfig.cs" />
     <Compile Include="Peer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

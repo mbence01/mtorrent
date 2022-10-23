@@ -67,6 +67,7 @@
     <Compile Include="Parser\HostParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HttpTrackerCommunication.cs" />
+    <Compile Include="ResponseBuilder\AnnounceResponseBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Torrent.Client.Model\Torrent.Client.Model.csproj">

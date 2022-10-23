@@ -11,9 +11,10 @@ namespace Torrent.Client.Model.Communication.Request
         public string PeerId { get; set; }
         public string Ip { get; set; } = "";
         public int Port { get; set; }
-        public int Uploaded { get; set; }
-        public int Downloaded { get; set; }
-        public int Left { get; set; }
+        public long Uploaded { get; set; }
+        public long Downloaded { get; set; }
+        public long Left { get; set; }
+        public int Compact { get; set; } = 1;
         public string Event { get; set; }
         public int NumWant { get; set; } = 50;
     }

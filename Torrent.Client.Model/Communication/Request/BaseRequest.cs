@@ -1,7 +1,9 @@
-﻿namespace Torrent.Client.Model.Communication.Request
+﻿using System;
+
+namespace Torrent.Client.Model.Communication.Request
 {
     public class BaseRequest
     {
-        public string Url { get; set; }
+        public Uri Uri { get; set; }
     }
 }

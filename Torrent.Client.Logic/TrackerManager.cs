@@ -2,6 +2,7 @@
 using Torrent.Client.Communication;
 using Torrent.Client.Logic.RequestBuilder;
 using Torrent.Client.Model.Communication.Request;
+using Torrent.Client.Model.Communication.Response;
 using Torrent.Client.Model.DotTorrent;
 using Torrent.Client.Model.Interface;
 
@@ -10,7 +11,7 @@ namespace Torrent.Client.Logic
     public class TrackerManager
     {
         #region Private variables
-        private static System.Collections.Specialized.NameValueCollection _appSettings;
+        private readonly Config _configuration;
         private readonly TorrentFile _torrent;
         private readonly ITrackerCommunication _trackerCommunication;
         #endregion
@@ -21,9 +22,9 @@ namespace Torrent.Client.Logic
         /// </summary>
         /// <param name="torrent">Parsed torrent file</param>
         /// <param name="appSettings">Application settings used</param>
-        public TrackerManager(TorrentFile torrent, System.Collections.Specialized.NameValueCollection appSettings)
+        public TrackerManager(TorrentFile torrent, Config config)
         {
-            _appSettings = appSettings;
+            _configuration = config;
             _torrent = torrent;
             _trackerCommunication = new HttpTrackerCommunication();
         }
@@ -35,21 +36,16 @@ namespace Torrent.Client.Logic
             //_trackerCommunication.ConnectToTracker(requestMessage);
         }
 
-        public void SendAnnounce(string peerId)
+        public AnnounceResponse SendAnnounce(string peerId)
         {
-            AnnounceRequest requestMessage = new AnnounceRequestBuilder().BuildAnnounceRequest(_torrent.Announce.ToString(),
-                                                _torrent.BencodedDictionary[_appSettings["PropInformation"]],
-                                                peerId,
-                                                Convert.ToInt32(_appSettings["StartPort"]),
-                                                _torrent.Info.Length,
-                                                _appSettings["EventStatusStarted"]);
+            AnnounceRequest requestMessage = new AnnounceRequestBuilder().BuildAnnounceRequest(_torrent, peerId, _configuration.StartPort);
 
-            _trackerCommunication.SendAnnounce(requestMessage);
+            return _trackerCommunication.SendAnnounce(requestMessage);
         }
 
         public void SendScrape()
         {
-            ScrapeRequest requestMessage = new ScrapeRequestBuilder().BuildScrapeRequest(_torrent.Announce.ToString(), _torrent.BencodedDictionary[_appSettings["PropInformation"]]);
+            ScrapeRequest requestMessage = new ScrapeRequestBuilder().BuildScrapeRequest(_torrent);
             _trackerCommunication.SendScrape(requestMessage);
         }
     }

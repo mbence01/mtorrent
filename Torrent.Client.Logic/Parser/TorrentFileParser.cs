@@ -24,11 +24,11 @@ namespace Torrent.Client.Logic.Parser
         #endregion
 
         #region Public functions
-        public TorrentFile ParseTorrent(string fileContent)
+        public TorrentFile ParseTorrent(byte[] fileContent)
         {
             try
             {
-                using (Stream stream = new MemoryStream(Encoding.UTF8.GetBytes(fileContent)))
+                using (Stream stream = new MemoryStream(fileContent))
                 {
                     BencodeParser parser = new BencodeParser();
                     BDictionary parsedTorrentFileAsDictionary = parser.Parse<BDictionary>(stream);
@@ -41,7 +41,7 @@ namespace Torrent.Client.Logic.Parser
                                       ex is IOException ||
                                       ex is UnauthorizedAccessException)
             {
-                throw new TorrentFileOpenException(fileContent, ex);
+                throw new TorrentFileOpenException(Encoding.UTF8.GetString(fileContent), ex);
             }
         }
         #endregion
@@ -62,13 +62,13 @@ namespace Torrent.Client.Logic.Parser
             try
             {
                 // These two properties are required according to the BitTorrent file structure
-                torrent.Announce        = new Uri(properties.Get<BString>(AppSettings["PropAnnounce"]).ToString());
-                torrent.Info            = GenerateModelForTorrentInfo(properties.Get<BDictionary>(AppSettings["PropInformation"]));
+                torrent.Announce        = new Uri(properties.Get<BString>("announce").ToString());
+                torrent.Info            = GenerateModelForTorrentInfo(properties.Get<BDictionary>("info"));
 
                 // These are optional keys
-                torrent.CreatedBy       = properties.Get<BString>(AppSettings["PropCreatedBy"])?.ToString();
-                torrent.CreationDate    = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(properties.Get<BNumber>(AppSettings["PropCreationDate"]) ?? 0);
-                torrent.Encoding        = System.Text.Encoding.GetEncoding(properties.Get<BString>(AppSettings["PropEncoding"])?.ToString() ?? AppSettings["DefaultTorrentEncoding"]);
+                torrent.CreatedBy       = properties.Get<BString>("created by")?.ToString();
+                torrent.CreationDate    = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(properties.Get<BNumber>("creation date") ?? 0);
+                torrent.Encoding        = Encoding.GetEncoding(properties.Get<BString>("encoding")?.ToString() ?? "UTF-8");
             }
             catch(Exception ex)
             {
@@ -91,14 +91,14 @@ namespace Torrent.Client.Logic.Parser
             try
             {
                 // These are required keys
-                info.Files = GenerateModelForTorrentFilePiecesList(properties.Get<BList>(AppSettings["PropInfoFiles"]));
-                info.Name = properties.Get<BString>(AppSettings["PropInfoName"]).ToString();
-                info.PieceLength = properties.Get<BNumber>(AppSettings["PropInfoPieceLength"]);
+                info.Files = GenerateModelForTorrentFilePiecesList(properties.Get<BList>("files"));
+                info.Name = properties.Get<BString>("name").ToString();
+                info.PieceLength = properties.Get<BNumber>("piece length");
 
                 // These are optional keys
-                info.Length = properties.Get<BNumber>(AppSettings["PropInfoLength"]) ?? 0;
-                info.Private = Convert.ToBoolean(Convert.ToInt32(properties.Get<BNumber>(AppSettings["PropInfoPrivate"])?.ToString() ?? "0"));
-                info.Source = properties.Get<BString>(AppSettings["PropInfoSource"])?.ToString();
+                info.Length = properties.Get<BNumber>("length") ?? 0;
+                info.Private = Convert.ToBoolean(Convert.ToInt32(properties.Get<BNumber>("private")?.ToString() ?? "0"));
+                info.Source = properties.Get<BString>("source")?.ToString();
             }
             catch(Exception ex)
             {
@@ -147,8 +147,8 @@ namespace Torrent.Client.Logic.Parser
 
             try
             {
-                piece.Length    = properties.Get<BNumber>(AppSettings["PropPieceLength"]);
-                piece.Path      = properties.Get<BList>(AppSettings["PropPiecePath"])
+                piece.Length    = properties.Get<BNumber>("length");
+                piece.Path      = properties.Get<BList>("path")
                                             .ToList()
                                             .Select(e => e.ToString())
                                             .ToList();

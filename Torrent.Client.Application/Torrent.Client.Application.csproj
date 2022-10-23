@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{38EE24C2-E1B8-4576-A0B2-4FA216835E0A}</ProjectGuid>
+    <ProjectGuid>{2C625B20-866F-43EF-A36C-52870A467007}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Torrent.Client.Main</RootNamespace>
-    <AssemblyName>Torrent.Client.Main</AssemblyName>
+    <RootNamespace>Torrent.Client.Application</RootNamespace>
+    <AssemblyName>Torrent.Client.Application</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,7 +34,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,13 +50,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Torrent.Client.Logic\Torrent.Client.Logic.csproj">
-      <Project>{0e251a85-1076-41a9-98b3-13ef239534d3}</Project>
-      <Name>Torrent.Client.Logic</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Torrent.Client.Model\Torrent.Client.Model.csproj">
-      <Project>{7077594c-a79a-4997-9e0f-61bc14c08e7c}</Project>
-      <Name>Torrent.Client.Model</Name>
+    <ProjectReference Include="..\Torrent.Client.Main\Torrent.Client.Main.csproj">
+      <Project>{c3046c0d-d3fc-4581-a7ed-9cbea233aac0}</Project>
+      <Name>Torrent.Client.Main</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

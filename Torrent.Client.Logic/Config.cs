@@ -1,11 +1,11 @@
 ﻿using Torrent.Client.Logic.Parser;
 using Torrent.Client.Model.Interface;
-using Torrent.Client.Model.Interface.Main;
 
-namespace Torrent.Client.Main
+namespace Torrent.Client.Logic
 {
-    public class Config : IConfig
+    public class Config
     {
         public ITorrentFileParser Parser { get; set; } = new TorrentFileParser();
+        public int StartPort { get; set; } = 6881;
     }
 }

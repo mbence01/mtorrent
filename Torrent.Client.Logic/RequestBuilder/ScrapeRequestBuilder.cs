@@ -1,26 +1,20 @@
 ﻿using BencodeNET.Objects;
 using System;
 using System.Security.Cryptography;
+using Torrent.Client.Logic.Common;
 using Torrent.Client.Model.Communication.Request;
+using Torrent.Client.Model.DotTorrent;
 
 namespace Torrent.Client.Logic.RequestBuilder
 {
     public class ScrapeRequestBuilder
     {
-        public ScrapeRequest BuildScrapeRequest(string trackerUrl, IBObject infoDict)
+        public ScrapeRequest BuildScrapeRequest(TorrentFile torrent)
         {
-            string infoHash;
-
-            using (SHA1 sha1 = SHA1.Create())
-            {
-                byte[] hash = sha1.ComputeHash(infoDict.EncodeAsBytes());
-                infoHash = Convert.ToBase64String(hash);
-            }
-
             return new ScrapeRequest
             {
-                InfoHash = infoHash,
-                Url = trackerUrl
+                InfoHash = SHA1Hasher.CreateHash(torrent.BencodedDictionary["info"]),
+                Uri = torrent.Announce
             };
         }
     }

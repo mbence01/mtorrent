@@ -17,7 +17,7 @@ namespace Torrent.Client.Logic.RequestBuilder
                 ProtocolId = PROTOCOL_ID_CONSTANT,
                 Action = 0,
                 TransactionId = new Random().Next(Int32.MaxValue),
-                Url = trackerUrl
+                Uri = new Uri(trackerUrl)
             };
 
             return request;
