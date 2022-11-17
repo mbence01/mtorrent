@@ -1,0 +1,122 @@
+[19:26:36] Error occurred at Torrent.Service.API.Controllers.WeatherForecastController.Get...
+[19:26:36] ArgumentNullException has been thrown. Message: Value cannot be null., StackTrace: 
+[19:26:36] TargetSite MethodName: 
+Teszt message
+[23:23:51] Error occurred at .DatabaseExtension.Insert<T>...
+[23:23:51] InvalidOperationException has been thrown. Message: The ConnectionString property has not been initialized., StackTrace:    at System.Data.SqlClient.SqlConnection.PermissionDemand()
+   at System.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Torrent.Service.Access.Common.DatabaseConnector.Connect(Int32 tries) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseConnector.cs:line 52
+   at Torrent.Service.Access.Common.DatabaseConnector..ctor(String connectionString, Int32 tries) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseConnector.cs:line 33
+   at Torrent.Service.Access.Common.DatabaseConnector..ctor(String connectionString) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseConnector.cs:line 20
+   at Torrent.Service.Access.Common.DatabaseExtension.Insert[T](T obj) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseExtension.cs:line 40
+[23:23:51] TargetSite MethodName: PermissionDemand
+[23:26:32] Error occurred at .DatabaseExtension.Insert<T>...
+[23:26:32] InvalidOperationException has been thrown. Message: The ConnectionString property has not been initialized., StackTrace:    at System.Data.SqlClient.SqlConnection.PermissionDemand()
+   at System.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Torrent.Service.Access.Common.DatabaseConnector.Connect(Int32 tries) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseConnector.cs:line 52
+   at Torrent.Service.Access.Common.DatabaseConnector..ctor(String connectionString, Int32 tries) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseConnector.cs:line 33
+   at Torrent.Service.Access.Common.DatabaseConnector..ctor(String connectionString) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseConnector.cs:line 20
+   at Torrent.Service.Access.Common.DatabaseExtension.Insert[T](T obj) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseExtension.cs:line 40
+[23:26:32] TargetSite MethodName: PermissionDemand
+[23:27:09] Error occurred at .DatabaseExtension.Insert<T>...
+[23:27:09] InvalidOperationException has been thrown. Message: The ConnectionString property has not been initialized., StackTrace:    at System.Data.SqlClient.SqlConnection.PermissionDemand()
+   at System.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Torrent.Service.Access.Common.DatabaseConnector.Connect(Int32 tries) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseConnector.cs:line 52
+   at Torrent.Service.Access.Common.DatabaseConnector..ctor(String connectionString, Int32 tries) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseConnector.cs:line 33
+   at Torrent.Service.Access.Common.DatabaseConnector..ctor(String connectionString) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseConnector.cs:line 20
+   at Torrent.Service.Access.Common.DatabaseExtension.Insert[T](T obj) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseExtension.cs:line 40
+[23:27:09] TargetSite MethodName: PermissionDemand
+[23:35:49] Error occurred at .DatabaseExtension.Insert<T>...
+[23:35:49] InvalidOperationException has been thrown. Message: The ConnectionString property has not been initialized., StackTrace:    at System.Data.SqlClient.SqlConnection.PermissionDemand()
+   at System.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Torrent.Service.Access.Common.DatabaseConnector.Connect(Int32 tries) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseConnector.cs:line 52
+   at Torrent.Service.Access.Common.DatabaseConnector..ctor(String connectionString, Int32 tries) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseConnector.cs:line 33
+   at Torrent.Service.Access.Common.DatabaseConnector..ctor(String connectionString) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseConnector.cs:line 20
+   at Torrent.Service.Access.Common.DatabaseExtension.Insert[T](T obj) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseExtension.cs:line 40
+[23:35:49] TargetSite MethodName: PermissionDemand
+[23:49:34] Error occurred at .DatabaseExtension.Insert<T>...
+[23:49:34] SqlException has been thrown. Message: Incorrect syntax near '@columnList'., StackTrace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at Torrent.Service.Access.Common.DatabaseExtension.Insert[T](T obj) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseExtension.cs:line 54
+[23:49:34] TargetSite MethodName: OnError
+[23:52:31] Error occurred at .DatabaseExtension.Insert<T>...
+[23:52:31] SqlException has been thrown. Message: Incorrect syntax near the keyword 'User'., StackTrace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at Torrent.Service.Access.Common.DatabaseExtension.Insert[T](T obj) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseExtension.cs:line 46
+[23:52:31] TargetSite MethodName: OnError
+[23:53:20] Error occurred at .DatabaseExtension.Insert<T>...
+[23:53:20] SqlException has been thrown. Message: Invalid object name 'dbo.User'., StackTrace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at Torrent.Service.Access.Common.DatabaseExtension.Insert[T](T obj) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseExtension.cs:line 46
+[23:53:20] TargetSite MethodName: OnError
+[23:54:51] Error occurred at .DatabaseExtension.Insert<T>...
+[23:54:51] SqlException has been thrown. Message: Incorrect syntax near '@columnList'., StackTrace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at Torrent.Service.Access.Common.DatabaseExtension.Insert[T](T obj) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseExtension.cs:line 54
+[23:54:51] TargetSite MethodName: OnError
+[23:55:30] Error occurred at .DatabaseExtension.Insert<T>...
+[23:55:30] SqlException has been thrown. Message: Conversion failed when converting date and/or time from character string., StackTrace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at Torrent.Service.Access.Common.DatabaseExtension.Insert[T](T obj) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseExtension.cs:line 54
+[23:55:30] TargetSite MethodName: OnError

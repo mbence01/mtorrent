@@ -1,0 +1,25 @@
+[00:03:41] Error occurred at .DatabaseExtension.Insert<T>...
+[00:03:41] NullReferenceException has been thrown. Message: Object reference not set to an instance of an object., StackTrace:    at Torrent.Service.Access.Common.DatabaseExtension.Insert[T](T obj) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseExtension.cs:line 54
+[00:03:41] TargetSite MethodName: Unbox
+[21:19:43] Error occurred at .DatabaseExtension.Insert<T>...
+[21:19:43] InvalidOperationException has been thrown. Message: The ConnectionString property has not been initialized., StackTrace:    at System.Data.SqlClient.SqlConnection.PermissionDemand()
+   at System.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Torrent.Service.Access.Common.DatabaseConnector.Connect(Int32 tries) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseConnector.cs:line 52
+   at Torrent.Service.Access.Common.DatabaseConnector..ctor(String connectionString, Int32 tries) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseConnector.cs:line 33
+   at Torrent.Service.Access.Common.DatabaseConnector..ctor(String connectionString) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseConnector.cs:line 20
+   at Torrent.Service.Access.Common.DatabaseExtension.Insert[T](T obj) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseExtension.cs:line 40
+[21:19:43] TargetSite MethodName: PermissionDemand
+[22:15:44] Error occurred at .DatabaseExtension.Insert<T>...
+[22:15:44] SqlException has been thrown. Message: Invalid object name 'dbo.User'., StackTrace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Torrent.Service.Access.Common.DatabaseExtension.Insert[T](T obj) in C:\Users\Acer Ultrabook\Documents\szakdoga\mtorrent\Torrent.Service.Access\Common\DatabaseExtension.cs:line 54
+[22:15:44] TargetSite MethodName: OnError

@@ -1,0 +1,12 @@
+[19:23:28] Error occurred at Torrent.Service.API.Controllers.WeatherForecastController.Get...
+[19:23:28] ArgumentNullException has been thrown. Message: Value cannot be null., StackTrace: 
+[19:23:28] TargetSite MethodName: 
+Teszt message
+[19:25:31] Error occurred at Torrent.Service.API.Controllers.WeatherForecastController.Get...
+[19:25:31] ArgumentNullException has been thrown. Message: Value cannot be null., StackTrace: 
+[19:25:31] TargetSite MethodName: 
+Teszt message
+[19:26:08] Error occurred at Torrent.Service.API.Controllers.WeatherForecastController.Get...
+[19:26:08] ArgumentNullException has been thrown. Message: Value cannot be null., StackTrace: 
+[19:26:08] TargetSite MethodName: 
+Teszt message
