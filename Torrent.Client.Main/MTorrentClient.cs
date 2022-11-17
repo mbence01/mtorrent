@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using Torrent.Client.Logic;
@@ -51,10 +52,16 @@ namespace Torrent.Client.Main
                 {
                     using (TcpClient client = new TcpClient())
                     {
+                        client.Client.ReceiveTimeout = TimeSpan.FromSeconds(60).Milliseconds;
+
                         Console.WriteLine("PEER " + peer.Id);
-                        client.Connect(peer.Ip, peer.Port);
+                        IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(peer.Ip), peer.Port);
+                        client.Connect(endPoint);
 
                         Console.WriteLine(client.Connected ? "connected" : "not connected");
+
+                        if (!client.Connected)
+                            continue;
 
                         NetworkStream stream = client.GetStream();
 

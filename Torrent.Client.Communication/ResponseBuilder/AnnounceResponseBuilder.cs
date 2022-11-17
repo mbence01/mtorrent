@@ -2,16 +2,12 @@
 using BencodeNET.Objects;
 using BencodeNET.Parsing;
 using System.Collections.Generic;
-using System.Text;
 using System;
 using Torrent.Client.Model.Communication.Response;
 using Torrent.Client.Model.Exception;
 using Torrent.Client.Model;
 using System.Linq;
-using System.Net;
-using System.IO;
-using BencodeNET.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 
 namespace Torrent.Client.Communication.ResponseBuilder
 {
@@ -23,7 +19,6 @@ namespace Torrent.Client.Communication.ResponseBuilder
 
             if (parsedResponse.TryGetValue("failure reason", out IBObject reason))
                 throw new TrackerFailureResponseException(reason.ToString(), "announce");
-
 
             AnnounceResponse respObject = new AnnounceResponse();
 
@@ -41,7 +36,11 @@ namespace Torrent.Client.Communication.ResponseBuilder
 
             if(parsedResponse.ContainsKey("peers"))
             {
-                byte[] peers = Encoding.UTF8.GetBytes(parsedResponse.Get<BString>("peers").ToString());
+                byte[] peers = new byte[response.Length - 82];
+
+                for (int i = 82; i < response.Length; i++)
+                    peers[i - 82] = response[i];
+
                 List<Peer> peerList = new List<Peer>();
                 int peerCount = 0;
 

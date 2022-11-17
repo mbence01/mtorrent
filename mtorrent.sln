@@ -13,6 +13,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Torrent.Client.Main", "Torr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Torrent.Client.Application", "Torrent.Client.Application\Torrent.Client.Application.csproj", "{2C625B20-866F-43EF-A36C-52870A467007}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Torrent.Service.API", "Torrent.Service.API\Torrent.Service.API.csproj", "{3E567EF3-E646-42A7-9F48-A028386D4804}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Torrent.Common.Model", "Torrent.Common.Model\Torrent.Common.Model.csproj", "{DDE99A5F-2E77-40A8-97D1-BA7542FC8359}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Torrent.Common", "Torrent.Common\Torrent.Common.csproj", "{30D80BB0-68CB-4034-A1E7-7429ED84B9A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Torrent.Service.Access", "Torrent.Service.Access\Torrent.Service.Access.csproj", "{25E58824-5FA1-4450-8AAD-74C35A8E7E61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Torrent.Service.Logic", "Torrent.Service.Logic\Torrent.Service.Logic.csproj", "{04761807-4173-4666-B2EB-084326F61824}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +49,26 @@ Global
 		{2C625B20-866F-43EF-A36C-52870A467007}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C625B20-866F-43EF-A36C-52870A467007}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C625B20-866F-43EF-A36C-52870A467007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E567EF3-E646-42A7-9F48-A028386D4804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E567EF3-E646-42A7-9F48-A028386D4804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E567EF3-E646-42A7-9F48-A028386D4804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E567EF3-E646-42A7-9F48-A028386D4804}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDE99A5F-2E77-40A8-97D1-BA7542FC8359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDE99A5F-2E77-40A8-97D1-BA7542FC8359}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDE99A5F-2E77-40A8-97D1-BA7542FC8359}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDE99A5F-2E77-40A8-97D1-BA7542FC8359}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30D80BB0-68CB-4034-A1E7-7429ED84B9A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30D80BB0-68CB-4034-A1E7-7429ED84B9A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30D80BB0-68CB-4034-A1E7-7429ED84B9A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30D80BB0-68CB-4034-A1E7-7429ED84B9A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25E58824-5FA1-4450-8AAD-74C35A8E7E61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25E58824-5FA1-4450-8AAD-74C35A8E7E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25E58824-5FA1-4450-8AAD-74C35A8E7E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25E58824-5FA1-4450-8AAD-74C35A8E7E61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04761807-4173-4666-B2EB-084326F61824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04761807-4173-4666-B2EB-084326F61824}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04761807-4173-4666-B2EB-084326F61824}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04761807-4173-4666-B2EB-084326F61824}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
