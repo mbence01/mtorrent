@@ -3,7 +3,7 @@ using Torrent.Common.Model.Attribute;
 
 namespace Torrent.Common.Model
 {
-	public class User
+	public class User : IModel
 	{
 		[PrimaryKey]
 		public int UserId { get; set; }

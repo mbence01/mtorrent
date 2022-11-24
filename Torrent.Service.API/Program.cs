@@ -22,4 +22,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.UsePathBase(new PathString("/MTorrentService"));
+app.UseRouting();
+
 app.Run();

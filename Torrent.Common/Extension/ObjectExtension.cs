@@ -56,7 +56,7 @@ namespace Torrent.Common.Extension
 			if (value == null)
 				return "null";
 			
-			if (value.GetType() == typeof(DateTime))
+			if (value is DateTime)
 				return $"'{Convert.ToDateTime(value).ToString("yyyy-MM-dd HH:mm:ss")}'";
 
 			return $"'{value.ToString()}'";

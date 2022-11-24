@@ -8,10 +8,10 @@ public static class AccessConfig
 	/// <summary>
 	/// Connection string of the database the program has to connect to.
 	/// </summary>
-	public const string ConnectionString = "Server=localhost\\SQLEXPRESS;Database=TorrentDB;Trusted_Connection=True;";
+	public static string? ConnectionString { get; set; }
 	
 	/// <summary>
 	/// Maximum connection attempts.
 	/// </summary>
-	public const int MaxAttempts = 5;
+	public static int MaxAttempts { get; set; }
 }

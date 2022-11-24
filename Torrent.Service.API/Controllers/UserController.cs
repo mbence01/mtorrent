@@ -1,25 +1,37 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Torrent.Common.Model;
+using Torrent.Common.Model.Exception;
 using Torrent.Service.Logic;
-using ConfigurationManager = System.Configuration.ConfigurationManager;
 
 namespace Torrent.Service.API.Controllers
 {
 	[ApiController]
-	[Route("[action]")]
+	[Route("[controller]/[action]")]
 	public class UserController : ControllerBase
 	{
+		private readonly IConfiguration _configuration;
 		private readonly ServiceManager _serviceManager;
 
-		public UserController()
+		public UserController(IConfiguration configuration)
 		{
-			this._serviceManager = new ServiceManager();
+			this._configuration = configuration;
+
+			#region Set the connection string
+			string? connectionString = configuration.GetConnectionString("DefaultSQLConnection");
+
+			if (connectionString == null)
+			{
+				throw new MTorrentApiException("User", "Constructor", "The given connection string was null.");
+			}
+			#endregion
+			
+			this._serviceManager = new ServiceManager(connectionString, configuration.GetValue<int>("MaxSQLConnectionAttempts"));
 		}
 	
-		[HttpPost]
-		public User TestUserInsert([FromBody] User user)
+		[HttpGet]
+		public List<User> GetUserById(int id)
 		{
-			return _serviceManager.TestUserInsert(user);
+			return _serviceManager.GetUserById(id);
 		}
 	};	
 }

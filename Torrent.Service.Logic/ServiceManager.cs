@@ -9,9 +9,9 @@ namespace Torrent.Service.Logic
 	{
 		private readonly ServiceAccess _serviceAccess;
 
-		public ServiceManager()
+		public ServiceManager(string connectionString, int maxConnectionAttempts)
 		{
-			this._serviceAccess = new ServiceAccess();
+			this._serviceAccess = new ServiceAccess(connectionString, maxConnectionAttempts);
 		}
 	}
 }

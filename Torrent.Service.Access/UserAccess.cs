@@ -1,16 +1,17 @@
-﻿using System.Data.SqlClient;
-using System.IO;
+﻿using Torrent.Common.Model;
 using Torrent.Service.Access.Common;
 
 namespace Torrent.Service.Access
 {
     public partial class ServiceAccess
     {
-        public void GetUserByUserId(int userID)
+        public List<User> GetUserById(int id)
         {
-            using (DatabaseConnector connector = new DatabaseConnector(_connectionString))
-            {
-            }
+            SqlWhereClause whereClause = new SqlWhereClause();
+            
+            whereClause.AddCondition("UserID", Operator.GreaterThan, id.ToString());
+            
+            return DatabaseExtension.Select<User>(whereClause);
         }
     }
 }

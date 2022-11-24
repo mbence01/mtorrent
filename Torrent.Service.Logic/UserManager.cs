@@ -6,9 +6,9 @@ namespace Torrent.Service.Logic
 {
 	public partial class ServiceManager
 	{
-		public User TestUserInsert(User user)
+		public List<User> GetUserById(int id)
 		{
-			return user.Insert();
+			return _serviceAccess.GetUserById(id);
 		}
 	}
 }

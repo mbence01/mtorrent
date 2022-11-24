@@ -1,5 +1,7 @@
 ﻿using System.Configuration;
 using System.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.Json;
 using Torrent.Common.Extension;
 using Torrent.Common.Logging;
 
