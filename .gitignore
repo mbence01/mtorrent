@@ -4,3 +4,5 @@
 */obj/
 release/
 *.torrent
+*error.txt
+*warning.txt
