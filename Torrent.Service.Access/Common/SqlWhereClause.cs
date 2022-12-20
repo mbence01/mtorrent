@@ -60,12 +60,24 @@ public class SqlWhereClause
 	/// <param name="fieldName">Field name in SQL table</param>
 	/// <param name="op">Operator that is used, for example: =, !=</param>
 	/// <param name="value">Value of <paramref name="fieldName"/> that should be checked</param>
-	public void AddCondition(string fieldName, Operator op, string value)
+	public SqlWhereClause AddCondition(string fieldName, Operator op, string value)
 	{
 		_fields.Add(fieldName);
 		_parameters.Add(new SqlParameter(GetParameterName(fieldName), value) { DbType = DbType.String, Size = value.Length });
 		_operators.Add(op);
+
+		return this;
 	}
+
+	/// <summary>
+	/// Initializes a new <see cref="SqlWhereClause"/> object from the given parameters. Useful when you only need to add one condition to the where clause.
+	/// </summary>
+	/// <param name="fieldName">Field name in SQL table</param>
+	/// <param name="op">Operator that is used, for example: =, !=</param>
+	/// <param name="value">Value of <paramref name="fieldName"/> that should be checked</param>
+	/// <returns><see cref="SqlWhereClause"/> object created by the parameters</returns>
+	public static SqlWhereClause From(string fieldName, Operator op, string value) 
+		=> new SqlWhereClause().AddCondition(fieldName, op, value);
 
 	/// <summary>
 	/// Returns the currently saved SQL parameters.

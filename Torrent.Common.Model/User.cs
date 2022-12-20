@@ -6,7 +6,7 @@ namespace Torrent.Common.Model
 	public class User : IModel
 	{
 		[PrimaryKey]
-		public int UserId { get; set; }
+		public int UserID { get; set; }
 		public string Username { get; set; }
 		public string Name { get; set; }
 		public string EmailAddress { get; set; }
