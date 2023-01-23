@@ -36,11 +36,7 @@ namespace Torrent.Client.Communication.ResponseBuilder
 
             if(parsedResponse.ContainsKey("peers"))
             {
-                byte[] peers = new byte[response.Length - 82];
-
-                for (int i = 82; i < response.Length; i++)
-                    peers[i - 82] = response[i];
-
+                byte[] peers = parsedResponse.Get<BString>("peers").Value.ToArray();
                 List<Peer> peerList = new List<Peer>();
                 int peerCount = 0;
 

@@ -10,7 +10,7 @@ namespace Torrent.Client.Application
     {
         static void Main(string[] args)
         {
-            byte[] content = File.ReadAllBytes(@"C:\Users\Acer Ultrabook\Desktop\r.torrent");
+            byte[] content = File.ReadAllBytes(@"C:\Users\madra\Downloads\test.torrent");
 
             MTorrentClient client = new MTorrentClient(content);
 

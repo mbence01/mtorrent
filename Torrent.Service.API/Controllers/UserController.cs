@@ -16,6 +16,12 @@ namespace Torrent.Service.API.Controllers
 	{
 		public UserController(IConfiguration configuration) : base(configuration) {}
 	
+		/// <summary>
+		/// Returns a <see cref="User"/> object associated with the given <paramref name="id"/>.
+		/// </summary>
+		/// <param name="token">Personal access token</param>
+		/// <param name="id">User ID</param>
+		/// <returns><see cref="User"/> object or null if not found</returns>
 		[HttpGet]
 		public User GetUserById(string token, int id)
 		{
@@ -24,6 +30,13 @@ namespace Torrent.Service.API.Controllers
 			return _serviceManager.GetUserById(id);
 		}
 
+		/// <summary>
+		/// Returns all of the users associated with the given <paramref name="usernames"/>. It is going to search with the LIKE operator if the <paramref name="exactResults"/> parameter's value is false.
+		/// </summary>
+		/// <param name="token">Personal access token</param>
+		/// <param name="usernames">List of usernames</param>
+		/// <param name="exactResults">Exact results only or username parts included</param>
+		/// <returns>List of <see cref="User"/></returns>
 		[HttpGet]
 		public List<User> GetUsersByUsername(string token, List<string> usernames, bool exactResults = true)
 		{
@@ -60,7 +73,7 @@ namespace Torrent.Service.API.Controllers
 				return new LoginResponse
 				{
 					StatusCode = StatusCodes.LoginFailed,
-					Message = "Looks like you have entered a wrong username or password. Please try again."
+					Message = "Look like you have entered a wrong username or password. Please try again."
 				};
 			}
 			catch (ManagerException ex) when (ex.ErrorCode == ManagerError.LoginPasswordExpired)

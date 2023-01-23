@@ -11,9 +11,21 @@ namespace Torrent.Service.Access.Common
 {
 	public static class DatabaseExtension
 	{
+		/// <summary>
+		/// Selects all of the found <typeparamref name="T"/> entities from the database.
+		/// </summary>
+		/// <typeparam name="T">Type of entities</typeparam>
+		/// <returns>A List of <typeparamref name="T"/> type entities</returns>
 		public static List<T> Select<T>() where T : IModel, new() => Select<T>(SqlWhereClause.CreateEmpty());
 
-		public static List<T> Select<T>(SqlWhereClause where) where T : IModel, new()
+        /// <summary>
+        /// Selects all of the found <typeparamref name="T"/> entities from the database that satisfies the <paramref name="where"/> condition.
+        /// </summary>
+        /// <typeparam name="T">Type of entities</typeparam>
+        /// <param name="where"><see cref="SqlWhereClause"/> object, which describes an SQL where clause</param>
+        /// <returns>A List of <typeparamref name="T"/> type entities</returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static List<T> Select<T>(SqlWhereClause where) where T : IModel, new()
 		{
 			const string selectStmtTemplate = "SELECT * FROM {0} {1}";
 			string tableName = $"[dbo].[{typeof(T).Name}]";
