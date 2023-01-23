@@ -56,6 +56,8 @@
     <Compile Include="Response\LoginResponse.cs" />
     <Compile Include="SystemSettings.cs" />
     <Compile Include="Token.cs" />
+    <Compile Include="Torrent.cs" />
+    <Compile Include="TorrentStatusChange.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserPassword.cs" />
   </ItemGroup>

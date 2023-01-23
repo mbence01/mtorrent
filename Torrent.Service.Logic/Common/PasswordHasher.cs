@@ -25,7 +25,7 @@ public static class PasswordHasher
 			hashedPassword.Append(shaHashedPassword[i] + (MAGIC_CONSTANT % i));
 		}
 
-		return hashedPassword.ToString();
+		return ShiftPassword(hashedPassword.ToString());
 	}
 
 	private static string ShiftPassword(string password)

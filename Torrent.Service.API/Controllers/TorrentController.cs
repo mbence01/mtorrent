@@ -12,9 +12,9 @@ namespace Torrent.Service.API.Controllers
 {
 	[ApiController]
 	[Route("[controller]/[action]")]
-	public class UserController : APIControllerBase
+	public class TorrentController : APIControllerBase
 	{
-		public UserController(IConfiguration configuration) : base(configuration) {}
+		public TorrentController(IConfiguration configuration) : base(configuration) {}
 	
 		[HttpGet]
 		public User GetUserById(string token, int id)
