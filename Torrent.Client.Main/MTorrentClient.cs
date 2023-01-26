@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
 using Torrent.Client.Logic;
@@ -17,6 +18,7 @@ namespace Torrent.Client.Main
         private string _peerId;
         private byte[] _fileContent;
         private TrackerManager _trackerManager;
+        private DownloadManager _downloadManager;
         private TorrentFile _parsedTorrent;
         private Config _configuration;
 
@@ -43,42 +45,54 @@ namespace Torrent.Client.Main
 
             _parsedTorrent = _configuration.Parser.ParseTorrent(_fileContent);
             _trackerManager = new TrackerManager(_parsedTorrent, _configuration);
+            _downloadManager = new DownloadManager(_configuration);
+
+            int i = 0;
 
             AnnounceResponse response = _trackerManager.SendAnnounce(_peerId);
 
+
+
             foreach(Peer peer in response.Peers)
             {
-                try
-                {
-                    using (TcpClient client = new TcpClient())
-                    {
-                        client.Client.ReceiveTimeout = TimeSpan.FromSeconds(60).Milliseconds;
+                //string resp = _downloadManager.SendHandshake(peer, response.InfoHash, _peerId);
 
-                        Console.WriteLine("PEER " + peer.Id);
-                        IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(peer.Ip), peer.Port);
-                        client.Connect(endPoint);
+                Console.WriteLine(peer.Ip + ":" + peer.Port);
 
-                        Console.WriteLine(client.Connected ? "connected" : "not connected");
+                //try
+                //{
+                //    Ping pingSender = new Ping();
+                //    PingOptions options = new PingOptions();
 
-                        if (!client.Connected)
-                            continue;
+                //    // Use the default Ttl value which is 128,
+                //    // but change the fragmentation behavior.
+                //    options.DontFragment = true;
 
-                        NetworkStream stream = client.GetStream();
+                //    // Create a buffer of 32 bytes of data to be transmitted.
+                //    string data = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+                //    byte[] buffer = Encoding.ASCII.GetBytes(data);
+                //    int timeout = 120;
+                //    PingReply reply = pingSender.Send(peer.Ip, timeout, buffer, options);
+                //    if (reply.Status == IPStatus.Success)
+                //    {
+                //        i++;
+                //        Console.WriteLine("Address: {0}", reply.Address.ToString());
+                //        Console.WriteLine("RoundTrip time: {0}", reply.RoundtripTime);
+                //        Console.WriteLine("Time to live: {0}", reply.Options.Ttl);
+                //        Console.WriteLine("Don't fragment: {0}", reply.Options.DontFragment);
+                //        Console.WriteLine("Buffer size: {0}", reply.Buffer.Length);
+                //    }
+                //    else Console.WriteLine("CANNOT REACH DESTINATION");
 
-                        stream.Write(Encoding.UTF8.GetBytes("hello world"), 0, Encoding.UTF8.GetBytes("hello world").Length);
-                        Console.WriteLine("sent hello world");
-                        byte[] buffer = new byte[1024];
-                        stream.Read(buffer, 0, buffer.Length);
-                        Console.WriteLine("received: " + Encoding.UTF8.GetString(buffer));
-                    }
-                }
-                catch(Exception ex)
-                {
-                    Console.WriteLine("Error: " + ex.Message);
-                }
+                //    Console.WriteLine("==================================================");
+                //}
+                //catch(Exception ex)
+                //{
+                //    Console.WriteLine("Error: " + ex.Message);
+                //}
             }
 
-            _trackerManager.SendScrape();
+            Console.WriteLine($"Reached {i} of {response.Peers.Count}");
         }
 
         private string GenerateUniquePeerId()

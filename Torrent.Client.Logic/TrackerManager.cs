@@ -21,7 +21,7 @@ namespace Torrent.Client.Logic
         /// Initializes a new <see cref="TrackerManager"/> instance and sets the value of the tracker URL
         /// </summary>
         /// <param name="torrent">Parsed torrent file</param>
-        /// <param name="appSettings">Application settings used</param>
+        /// <param name="config">Application settings used</param>
         public TrackerManager(TorrentFile torrent, Config config)
         {
             _configuration = config;
@@ -30,17 +30,14 @@ namespace Torrent.Client.Logic
         }
         #endregion
 
-        public void ConnectToTracker()
-        {
-            //ConnectRequest requestMessage = new ConnectRequestBuilder().BuildConnectRequest(_trackerUrl);
-            //_trackerCommunication.ConnectToTracker(requestMessage);
-        }
-
         public AnnounceResponse SendAnnounce(string peerId)
         {
             AnnounceRequest requestMessage = new AnnounceRequestBuilder().BuildAnnounceRequest(_torrent, peerId, _configuration.StartPort);
+            AnnounceResponse response = _trackerCommunication.SendAnnounce(requestMessage);
 
-            return _trackerCommunication.SendAnnounce(requestMessage);
+            response.InfoHash = requestMessage.InfoHash;
+
+            return response;
         }
 
         public void SendScrape()

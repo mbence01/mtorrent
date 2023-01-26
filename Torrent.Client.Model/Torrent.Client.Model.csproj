@@ -66,6 +66,7 @@
     <Compile Include="Communication\Request\AnnounceRequest.cs" />
     <Compile Include="Communication\Request\BaseRequest.cs" />
     <Compile Include="Communication\Request\ConnectRequest.cs" />
+    <Compile Include="Communication\Request\PeerHandshakeRequest.cs" />
     <Compile Include="Communication\Request\ScrapeRequest.cs" />
     <Compile Include="Communication\Response\AnnounceResponse.cs" />
     <Compile Include="Communication\Response\BaseResponse.cs" />

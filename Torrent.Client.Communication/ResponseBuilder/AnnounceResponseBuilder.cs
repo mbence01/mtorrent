@@ -43,7 +43,7 @@ namespace Torrent.Client.Communication.ResponseBuilder
                 for (int i = 0; i < peers.Length / 6; i++)
                 {
                     Byte[] ipAddr = new byte[4];
-                    UInt16 port;
+                    int port;
 
                     ipAddr[0] = Convert.ToByte(peers[6 * i + 0]);
                     ipAddr[1] = Convert.ToByte(peers[6 * i + 1]);
